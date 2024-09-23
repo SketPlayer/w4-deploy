@@ -30,4 +30,4 @@ RUN pnpm run build
 EXPOSE 80
 
 # Command untuk menjalankan aplikasi
-CMD ["pnpm", "run", "dev", "--", "--port", "80"]
+CMD ["pnpm", "run", "dev", "--", "--port", "80", "--host", "0.0.0.0"]
