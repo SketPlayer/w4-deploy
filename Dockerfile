@@ -14,20 +14,18 @@ WORKDIR /app
 # Copy file package.json dan pnpm-lock.yaml ke dalam container
 COPY package.json pnpm-lock.yaml ./
 
-# Install pnpm globally
-RUN npm install -g pnpm
-
 # Install dependencies
+RUN npm install -g pnpm
 RUN pnpm install
 
 # Copy seluruh kode ke dalam container
 COPY . .
 
 # Build aplikasi
-RUN pnpm run build
+RUN pnpm build
 
 # Expose port yang digunakan
-EXPOSE 3000
+EXPOSE 80
 
 # Command untuk menjalankan aplikasi
-CMD ["pnpm", "run", "dev"]
+CMD ["npm", "start", "--", "-p", "80"]
