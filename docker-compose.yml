@@ -7,3 +7,7 @@ services:
         STUDENT_NIM: "00000070666"
     ports:
       - "80:80"
+    environment:
+      - NODE_ENV=production
+      - NITRO_PORT=80  # Memastikan Nuxt berjalan di port 80
+    command: pnpm run start
