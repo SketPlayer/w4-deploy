@@ -11,8 +11,8 @@ ENV NUXT_STUDENT_NIM ${STUDENT_NIM}
 # Set working directory in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package.json pnpm-lock.json ./
+# Copy package.json and pnpm-lock.yaml
+COPY package.json pnpm-lock.yaml ./
 
 # Install dependencies using npm
 RUN npm install -g pnpm
