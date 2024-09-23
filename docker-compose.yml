@@ -6,4 +6,7 @@ services:
         STUDENT_NAME: "Rio Ferdinan"
         STUDENT_NIM: "00000070666"
     ports:
-      - "80:3000" # Port 80 (host & destinasi)
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    restart: always
