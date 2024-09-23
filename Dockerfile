@@ -18,6 +18,9 @@ COPY package.json pnpm-lock.yaml ./
 RUN npm install -g pnpm
 RUN pnpm install
 
+# Build aplikasi
+RUN pnpm build
+
 # Copy seluruh kode ke dalam container
 COPY . .
 
@@ -25,4 +28,4 @@ COPY . .
 EXPOSE 80
 
 # Command untuk menjalankan aplikasi
-CMD ["pnpm", "run", "dev", "--", "--port", "80", "--host", "4.198.168.204"]
+CMD ["pnpm", "start", "--", "--port", "80", "--host", "0.0.0.0"]
