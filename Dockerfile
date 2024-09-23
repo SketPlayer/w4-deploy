@@ -19,7 +19,7 @@ RUN npm install -g pnpm
 RUN pnpm install
 
 # Build aplikasi
-RUN pnpm build
+RUN npm build
 
 # Copy seluruh kode ke dalam container
 COPY . .
@@ -28,4 +28,4 @@ COPY . .
 EXPOSE 80
 
 # Command untuk menjalankan aplikasi
-CMD ["pnpm", "start", "--", "--port", "80", "--host", "0.0.0.0"]
+CMD ["npm", "start", "--", "--port", "80", "--host", "0.0.0.0"]
