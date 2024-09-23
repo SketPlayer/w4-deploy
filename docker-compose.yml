@@ -7,4 +7,4 @@ services:
         STUDENT_NIM: "00000070666"
     ports:
       - "80:80"
-    command: ["pnpm", "start", "--", "--port", "80", "--host", "0.0.0.0"]
+    command: ["npm", "start", "--", "--port", "80", "--host", "0.0.0.0"]
