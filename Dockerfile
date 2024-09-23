@@ -12,19 +12,23 @@ ENV NUXT_STUDENT_NIM ${STUDENT_NIM}
 WORKDIR /app
 
 # Copy package.json and package-lock.json
-COPY package.json package-lock.json ./
+COPY package.json pnpm-lock.json ./
 
 # Install dependencies using npm
-RUN npm install
+RUN npm install -g pnpm
+RUN pnpm install
 
 # Copy the entire codebase into the container
 COPY . .
 
 # Build the application for production
-RUN npm run build
+RUN pnpm run build
 
 # Expose the port the app will run on
 EXPOSE 80
 
-# Command to run the application in production mode
-CMD ["npm", "start", "--", "--port", "80", "--host", "0.0.0.0"]
+# Set environment variable to run on port 80
+ENV NITRO_PORT=80
+
+# Command to preview production build
+CMD ["pnpm", "run", "preview"]
