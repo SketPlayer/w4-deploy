@@ -21,11 +21,8 @@ RUN pnpm install
 # Copy seluruh kode ke dalam container
 COPY . .
 
-# Build aplikasi
-RUN pnpm build
-
 # Expose port yang digunakan
 EXPOSE 80
 
 # Command untuk menjalankan aplikasi
-CMD ["npm", "start", "--", "-p", "80"]
+CMD ["pnpm", "run", "dev", "--", "--port", "80", "--host", "0.0.0.0"]
