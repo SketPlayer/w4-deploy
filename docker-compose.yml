@@ -6,5 +6,4 @@ services:
         STUDENT_NAME: "Rio Ferdinan"
         STUDENT_NIM: "00000070666"
     ports:
-      - "80:80" # Port 80 (host & destinasi)
-    command: ["pnpm", "run", "dev", "--", "--port", "80", "--host", "0.0.0.0"]
+      - "80:3000" # Port 80 (host & destinasi)
