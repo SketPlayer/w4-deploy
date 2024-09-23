@@ -27,7 +27,7 @@ COPY . .
 RUN pnpm run build
 
 # Expose port yang digunakan
-EXPOSE 80
+EXPOSE 3000
 
 # Command untuk menjalankan aplikasi
-CMD ["pnpm", "run", "dev", "--", "--port", "80", "--host", "0.0.0.0"]
+CMD ["pnpm", "run", "dev"]
