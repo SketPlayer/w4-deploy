@@ -8,24 +8,23 @@ ENV NUXT_STUDENT_NAME ${STUDENT_NAME}
 ENV NUXT_STUDENT_NIM ${STUDENT_NIM}
 ### </JANGAN DIGANTI>
 
-# Set working directory dalam container
+# Set working directory in the container
 WORKDIR /app
 
-# Copy file package.json dan pnpm-lock.yaml ke dalam container
-COPY package.json pnpm-lock.yaml ./
+# Copy package.json and package-lock.json
+COPY package.json package-lock.json ./
 
-# Install dependencies
-RUN npm install -g pnpm
-RUN pnpm install
+# Install dependencies using npm
+RUN npm install
 
-# Build aplikasi
-RUN pnpm build
-
-# Copy seluruh kode ke dalam container
+# Copy the entire codebase into the container
 COPY . .
 
-# Expose port yang digunakan
+# Build the application for production
+RUN npm run build
+
+# Expose the port the app will run on
 EXPOSE 80
 
-# Command untuk menjalankan aplikasi
-CMD ["pnpm", "start", "--", "--port", "80", "--host", "0.0.0.0"]
+# Command to run the application in production mode
+CMD ["npm", "start", "--", "--port", "80", "--host", "0.0.0.0"]
